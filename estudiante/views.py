@@ -37,3 +37,8 @@ def detalle_curso(request, pk):
     curso_data['estudiantes'] = alumnos_curso_data
 
     return JsonResponse(curso_data, status=200, safe=False)
+
+
+def listar_cursos(request):
+    cursos = Curso.objects.all()
+    return render(request, 'estudiante/lista_cursos.html', {'cursos': cursos})
